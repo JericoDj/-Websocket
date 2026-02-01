@@ -33,6 +33,12 @@ matchesRouter.post('/', async (req, res) => {
             awayScore: 0,
             status: 'scheduled',
         }).returning();
+
+
+        if (res.app.locals.broadcastMatchCreated) {
+            res.app.locals.broadcastMatchCreated(event);
+        }
+
         res.status(201).json(event);
     } catch (error) {
         console.error('Error creating match:', error);
