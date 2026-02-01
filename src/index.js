@@ -20,6 +20,9 @@ app.get('/', (req, res) => {
     res.send('Server is running!');
 });
 
+// app.use(securityMiddleware());
+
+
 app.use('/matches', matchesRouter);
 
 server.listen(port, () => {
